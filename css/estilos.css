@@ -5,13 +5,8 @@
   --BackGroundFondoPrincipal: linear-gradient(95deg, rgba(5, 10, 34, 1) 18%, rgb(6, 7, 48) 90%);
   --Blur: blur(50px);
 
-  --BakcgroundColor: #F3F5FC;
   --ColorSecundario: #0A3871;
   --ColorBlanco: #FFFFFF;
-  --ColorEfectoButton: #D8DFE8;
-  --ColorFuentePrimario: #343A40;
-  --ColorFuenteSecundario: #495057;
-
 }
 
 * {
@@ -31,67 +26,47 @@ main {
 body {
   width: 100%;
   min-height: 100vh;
-  background: var(--BackGroundFondoPrincipal);
+ /*background: var(--BackGroundFondoPrincipal);*/
   font-size: 1.2rem;
-
 }
 
-.nav {
-  height: 80px;
-  color: var(--ColorBlanco);
+body.no-scroll {
+  overflow: hidden;
 }
 
-.nav__logo {
-  font-size: 1.5rem;
-  font-weight: 900;
-}
-
-.nav__container {
+header{
   display: flex;
-  height: 100%;
-  width: 90%;
-  margin: 0 auto;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: #ececec;
 }
 
-.nav__label,
-.nav__input {
-  display: none;
+
+.logo{
+  max-width: 50px;
 }
 
-.nav__menu {
-  display: grid;
-  grid-auto-flow: column;
+.nav-list{
+  list-style-type: none;
+  display: flex;
   gap: 3rem;
 }
 
-.nav__item {
-  color: var(--ColorBlanco);
-  font-weight: 900;
+.nav-list li a {
   text-decoration: none;
-  --clippy: polygon(0 1%, 0 1%, 0 100%, 0% 100%);
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: black;
 }
 
-.nav__item::after {
-  content: '';
-  display: block;
-  background: var(--BakcgroundColor);
-  width: 90%;
-  margin-top: 3px;
-  height: 3px;
-  clip-path: var(--clippy);
-  transition: clip-path .5s;
-}
-
-.nav__item:hover {
-  --clippy: polygon(0 1%, 100% 0, 100% 100%, 0 100%);
+.abrir-menu,
+.cerrar-menu{
+  display: none;
 }
 
 
 .grid-container>* {
-  /*box-shadow: 10px 6px 37px -13px rgba(51, 51, 51, 0.74);*/
-  /*border-radius: 10px;*/
   padding: 5px;
   text-align: center;
   font-weight: 500;
@@ -101,15 +76,14 @@ body {
   display: grid;
   gap: 10px;
   grid-template:
-    "nav" 70px
+    "header" 70px
     "saludo" 100vh
     "educacion" 100vh
     "proyectos" 100vh
     "contacto" 100vh;
 
-  .nav {
-    grid-area: nav;
-  
+  .header {
+    grid-area: header;
   }
 
   .saludo {
@@ -184,7 +158,7 @@ body {
     gap: 10px;
 
     grid-template:
-      "nav" 70px
+      "header" 70px
       "saludo" 100vh
       "educacion" 100vh
       "proyectos" 100vh
@@ -220,41 +194,60 @@ body {
         width: 100%;
         height: 50%;
       }
-
     }
   }
 
-
-
-  .nav__label{
+  
+  .abrir-menu,
+  .cerrar-menu{
     display: block;
+    border: 0;
+    font-size: 3rem;
+    background-color: transparent;
     cursor: pointer;
   }
 
-  .nav__menu{
-    position: fixed;
-    top: 80px; /* Empieza justo debajo de la barra de navegación fija */
-    bottom: 0;
-    background: #f08080;
-    width: 100%;
-    height: 60%;
-    right: 0;
+  .abrir-menu{
+    color: #1c1c1c;
+  }
+
+  .cerrar-menu{
+    color: #ececec;
+  }
+
+  .nav{
+    opacity: 0;
+    visibility: hidden;
+
+
     display: flex;
-    justify-content: space-evenly;
     flex-direction: column;
-    align-items: center ;
+    align-items: end;
+    gap:1rem;
 
-    clip-path: circle(0 at center);
-    transition: clip-path 0.5s ease-in-out;
-    visibility: visible; /* Por defecto visible */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color:#1c1c1c;
+    padding: 2rem;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
+    opacity: 1;
   }
 
-   .nav__input:checked + .nav__menu{
-    clip-path: circle(100% at center);
+  .nav.visible{
+    opacity: 1;
+    visibility: visible;
   }
 
- 
+  .nav-list{
+    flex-direction: column;
+    align-items: end;
+  }
 
+  .nav-list li a {
+    color:#ecececec;
+  }
 }
 
 

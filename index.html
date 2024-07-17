@@ -13,24 +13,25 @@
 <body>
     <main>
         <div class="grid-container">
-            <nav class="nav">
-                <div class="nav__container">
-                    <h1 href="#" class="nav__logo">LOGO</h1>
 
-                    <label for="menu" class="nav__label">
-                        <img src="assets/menu.svg" alt="logo_menu" class="nav_img">
-                    </label>
+            <header class="header">
+                <img src="img/logoGood.png" class="logo" alt="logo">
 
-                    <input type="checkbox" id="menu" class="nav__input">
+                <button id="abrir" class="abrir-menu"> <i class='bx bx-menu'> </i></button>
 
-                    <div class="nav__menu">
-                        <a href="#saludo" class="nav__item">Perfil</a></li>
-                        <a href="#educacion" class="nav__item">Habilidades</a></li>
-                        <a href="#proyectos" class="nav__item">Proyectos</a></li>
-                        <a href="#contacto" class="nav__item">Contacto</a></li>
-                    </div>
-                </div>
-            </nav>
+                <nav class="nav" id="nav">
+
+                    <button id="cerrar" class="cerrar-menu"> <i class='bx bx-x'> </i></button>
+                    
+                    <ul class="nav-list">
+                        <li><a href="#saludo" class="nav__item">Perfil</a></li>
+                        <li><a href="#proyectos" class="nav__item">Proyectos</a></li>
+                        <li><a href="#educacion" class="nav__item">Habilidades</a></li>
+                        <li> <a href="#contacto" class="nav__item">Contacto</a></li>
+                    </ul>
+                </nav>
+
+            </header>
 
             <section class="saludo" id="saludo">
 
@@ -63,10 +64,10 @@
                     CONTACTO
                 </div>
             </section>
+
         </div>
     </main>
 </body>
 <script src="js/script.js"></script>
 
 </html>
-

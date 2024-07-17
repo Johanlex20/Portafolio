@@ -1,35 +1,38 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Obtener el menú y el input del menú
-    var navMenu = document.querySelector('.nav__menu');
-    var checkbox = document.getElementById('menu');
-  
-    // Obtener todos los enlaces del menú
-    var menuLinks = document.querySelectorAll('.nav__menu .nav__item');
-  
-    // Iterar sobre cada enlace y agregar un evento de clic
-    menuLinks.forEach(function(link) {
-      link.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
-        checkbox.checked = false; // Desmarcar el checkbox para cerrar el menú
-        navMenu.style.transitionDelay = '0s'; // Reiniciar cualquier retraso de transición
-        setTimeout(function() {
-          navMenu.style.transitionDelay = '0.5s'; // Restablecer el retraso de transición después de 0.5s
-          navMenu.style.position = 'fixed'; // Cambiar la posición a fixed después de la transición de clip-path
-        }, 500); // Esperar 500ms antes de cambiar la posición a fixed
-  
-        // Obtener el id del destino desde el atributo href del enlace
-        var targetId = link.getAttribute('href').substring(1); // Elimina el símbolo '#'
-  
-        // Obtener la posición del elemento destino
-        var targetElement = document.getElementById(targetId);
-        var offsetTop = targetElement.offsetTop;
-  
-        // Desplazarse suavemente hasta la posición del elemento destino
-        window.scrollTo({
-          top: offsetTop,
-          behavior: 'smooth'
-        });
-      });
+const nav = document.querySelector("#nav");
+const abrir = document.querySelector("#abrir");
+const cerrar = document.querySelector("#cerrar");
+const navLinks = document.querySelectorAll(".nav-list a");
+
+// Abrir el menú y deshabilitar el scroll
+abrir.addEventListener("click", () =>{
+    nav.classList.add("visible");
+    document.body.classList.add("no-scroll");
+});
+
+// Cerrar el menú y habilitar el scroll
+cerrar.addEventListener("click", ()=>{
+    nav.classList.remove("visible");
+    document.body.classList.remove("no-scroll");
+});
+
+
+// Redireccionar clic cada uno de los enlaces del menú
+navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        nav.classList.remove("visible");
+        document.body.classList.remove("no-scroll");
+        const targetId = link.getAttribute("href").substring(1);
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: "smooth" });
+        }
     });
-  });
-  
+});
+
+// Detectar clic fuera del nav para cerrar el menú
+document.addEventListener("click", (event) => {
+    if (nav.classList.contains("visible") && !nav.contains(event.target) && !abrir.contains(event.target)) {
+        nav.classList.remove("visible");
+        document.body.classList.remove("no-scroll");
+    }
+});
