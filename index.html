@@ -4,8 +4,371 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Portafolio</title>
+        <link rel="stylesheet" href="css/estilos.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        
     </head>
     <body>
-        
+        <main>
+            <div class="grid-container">
+                <header class="header">
+                    <a href="#" class="logo">LOGO</a> 
+
+                    <label for="" class="icons">
+                       <i class='bx bx-menu' id="menu-icon"></i>
+                        <i class='bx bx-x' id="close-icon" ></i>
+                    </label>
+                
+
+                        <nav id="nav" class="navbar">
+                               <a href="#johan" >Perfil</a></li>
+                                <a href="#about" >Habilidades</a></li>
+                                <a href="#proyectos">Proyectos</a></li>
+                                <a href="#contacto" >Contacto</a></li>
+                        </nav>
+                </header>
+
+                <section class="saludo" id="saludo">
+                   
+                        <div class="img">
+                            img
+                        </div>
+                        <div class="descripcion">
+                            BIENVENIDO
+                        </div>
+                  
+                </section>
+
+                <section class="educacion" id="educacion">
+                    <div class="titulos">
+                        EDUCACION
+                    </div>
+                    <div class="skill">
+                        skills
+                    </div>
+                </section>
+
+                <section class="proyectos" id="proyectos">
+                    <div >
+                        PROYECTOS
+                    </div>
+                </section>
+
+                <section class="contacto" id="contacto">
+                    <div >
+                        CONTACTO
+                    </div>
+                </section>
+            </div>
+        </main>
     </body>
+    <script src="js/script.js"></script>
     </html>
+
+    <!--
+    
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+:root{
+    --FuentePrincipal: "Poppins", sans-serif;
+    --BackGroundFondoPrincipal: linear-gradient(95deg, rgba(5,10,34,1) 18%, rgb(6, 7, 48) 90%);
+    --Blur:blur(50px);
+    
+    --BakcgroundColor: #F3F5FC;
+    --ColorSecundario: #0A3871;
+    --ColorBlanco: #FFFFFF;
+    --ColorEfectoButton:#D8DFE8;
+    --ColorFuentePrimario: #343A40;
+    --ColorFuenteSecundario: #495057;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+main {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    background: var(--BackGroundFondoPrincipal);
+
+    font-family: sans-serif;
+    font-size: 1.2rem;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.3rem 10%;
+
+
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+
+.header ::before {
+    /*content: '';*/
+    
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, .1);
+    backdrop-filter: var(--Blur) ;
+    z-index: 1;
+    
+}
+
+
+.navbar {
+    padding: 5px; 
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 17.7rem;
+    background: rgba(0, 0, 0, .1);
+    backdrop-filter: var(--Blur) ;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+}
+
+
+
+
+
+.navbar a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--ColorBlanco);
+    margin-left: 2.5rem;
+
+    display: block;
+    margin: 1.5rem 0;
+
+}
+
+header label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icons{
+    font-size: 2.8rem;
+    color:  var(--BakcgroundColor);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: 0;
+    left: 40%;
+    width: 100%; 
+    height: 100%; 
+}
+
+/*.icons #close-icon{
+    display: none;
+}*/
+
+.logo {
+    font-size: 2rem;
+    color: var(--ColorBlanco) ;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+
+
+
+.grid-container > * {
+    /*box-shadow: 10px 6px 37px -13px rgba(51, 51, 51, 0.74);*/
+    /*border-radius: 10px;*/
+    padding: 10px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.grid-container{
+    display: grid;
+    gap: 20px;
+    grid-template:
+    "header" 100px
+    "saludo" 92vh
+    "educacion"100vh
+    "proyectos"100vh
+    "contacto"100vh;
+
+    .header{
+        grid-area: header;
+       /* background-color: rgba(103, 93, 241 ,0.74);*/
+    }
+    .saludo{
+        grid-area: saludo;
+        background-color: rgba(93, 241, 197, 0.74);
+    }
+    .educacion{
+        grid-area: educacion;
+        background-color: rgba(152, 241, 93, 0.74);
+    }
+    .proyectos{
+        grid-area: proyectos;
+        background-color: rgba(187, 93, 241, 0.74);
+    }
+    .contacto{
+        grid-area: contacto;
+        background-color: rgba(241, 93, 93, 0.74);
+    }
+
+    .saludo{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+          
+          .img{
+              width: 100%;
+              height: 50%;
+              padding: 10px;
+              grid-area: img;
+              background-color: rgba(93, 241, 160, 0.74);
+          }
+          .descripcion{
+              width: 100%;
+              height: 50%;
+              padding: 10px;
+              grid-area: descripcion;
+              background-color: rgba(33, 236, 33, 0.74);
+          }
+      }
+
+      .educacion{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+          
+          .titulos{
+              width: 100%;
+              height: 50%;
+              padding: 10px;
+              grid-area: img;
+              background-color: rgba(93, 241, 150, 0.74);
+          }
+          .skill{
+              width: 100%;
+              height: 50%;
+              padding: 10px;
+              grid-area: descripcion;
+              background-color: rgba(33, 236, 141, 0.74);
+          }
+      }
+
+
+    @media (min-width:768px){ 
+        .icons{
+            left: 45%;  
+        }
+    }
+
+
+    @media (min-width:992px){
+        .header{
+            padding: 1.3rem 5%;
+        }
+        .icons{
+            display: none;
+        }
+
+        .navbar {
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: fit-content;
+       
+            position: relative;
+            background: red;
+        }
+
+        .header {
+            top: 0;
+            width: 100%;
+            position: relative;
+
+            height: fit-content;
+            display: flex;
+            justify-content:space-between;
+ 
+ 
+            background: blue;
+        }
+
+    
+      
+        
+        
+
+    }
+
+
+    @media (min-width:1024px){
+        grid-template:
+        "header" 100px
+        "saludo" 92vh
+        "educacion"100vh
+        "proyectos"100vh
+        "contacto"100vh;
+
+
+        .saludo{
+            display: flex;
+            flex-direction: row;
+          
+              .img{
+                  width: 50%;
+                  height: 100%;
+              }
+              .descripcion{
+                  width: 50%;
+                  height: 100%;
+              }
+          }
+
+          .educacion{
+            display: flex;
+            flex-direction: row;
+
+              .titulos{
+                  width: 50%;
+                  height: 100%;
+              }
+              .skill{
+                  width: 50%;
+                  height: 100%;
+              }
+          }
+
+    }
+
+}
+
+
+    -->
