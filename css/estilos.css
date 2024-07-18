@@ -3,9 +3,9 @@
 :root {
   --FuentePrincipal: "Poppins", sans-serif;
   --BackGroundFondoPrincipal: linear-gradient(95deg, rgba(5, 10, 34, 1) 18%, rgb(6, 7, 48) 90%);
+  --DarkHeaderBackground: #0A3871; /* Nuevo color para el header en modo oscuro */
   --Blur: blur(50px);
-
-  --ColorSecundario: #0A3871;
+  --ColorOscuro: #00ebeb;
   --ColorBlanco: #FFFFFF;
 }
 
@@ -22,12 +22,12 @@ main {
   box-sizing: border-box;
 }
 
-
 body {
   width: 100%;
   min-height: 100vh;
  /*background: var(--BackGroundFondoPrincipal);*/
   font-size: 1.2rem;
+  transition: all 1.5s ease;
 }
 
 body.no-scroll {
@@ -40,9 +40,18 @@ header{
   justify-content: space-between;
   padding: 2rem;
   background-color: #ececec;
+  transition: background-color 1.5s ease; /* Asegura una transición modo oscuro suave */
+}
+
+header .logo,
+header .nav-list li a,
+header .abrir-menu,
+header .cerrar-menu {
+  transition: color 1.5s ease; /* Asegura una transición suave para el color del texto */
 }
 
 
+/* -------------- menu --------------- */
 .logo{
   max-width: 50px;
 }
@@ -57,7 +66,8 @@ header{
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: 900;
-  color: black;
+  color: var(--DarkHeaderBackground);
+  
 }
 
 .abrir-menu,
@@ -65,6 +75,36 @@ header{
   display: none;
 }
 
+/* ----------------modo oscuro boton --------------- */
+
+#toggle{
+  display: none;
+}
+
+.label_toggle{
+  position: absolute;
+  top: 21px;
+  right: 100px;
+}
+
+#label_toggle{
+  font-size: 25px;
+}
+
+.dark{
+  background: var(--BackGroundFondoPrincipal);
+  color:#ececec;
+  transition: all 1.5s ease;
+}
+
+.dark header {
+  background: var(--DarkHeaderBackground);
+}
+
+.dark .nav-list a{
+  color: #ececec;
+}
+/* ------------------------------------- --------------- */
 
 .grid-container>* {
   padding: 5px;
@@ -74,7 +114,7 @@ header{
 
 .grid-container {
   display: grid;
-  gap: 10px;
+  gap: 2px;
   grid-template:
     "header" 70px
     "saludo" 100vh
@@ -154,9 +194,7 @@ header{
 @media (max-width: 769px) {
 
   .grid-container {
-    display: grid;
-    gap: 10px;
-
+  
     grid-template:
       "header" 70px
       "saludo" 100vh
@@ -197,7 +235,6 @@ header{
     }
   }
 
-  
   .abrir-menu,
   .cerrar-menu{
     display: block;
@@ -208,7 +245,11 @@ header{
   }
 
   .abrir-menu{
-    color: #1c1c1c;
+    color:var(--DarkHeaderBackground)
+  }
+
+  .dark .abrir-menu{
+    color: var(--ColorBlanco);
   }
 
   .cerrar-menu{
@@ -218,7 +259,6 @@ header{
   .nav{
     opacity: 0;
     visibility: hidden;
-
 
     display: flex;
     flex-direction: column;
