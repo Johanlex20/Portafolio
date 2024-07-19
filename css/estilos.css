@@ -1,25 +1,26 @@
-/*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --FuentePrincipal: "Poppins", sans-serif;
+  --FuentePrincipal: 'Montserrat', sans-serif;
   --BackGroundFondoPrincipal: linear-gradient(95deg, rgba(5, 10, 34, 1) 18%, rgb(6, 7, 48) 90%);
   --DegradeTituloPrincipal: linear-gradient(330deg, rgba(1, 88, 198, 1) 0%, rgba(34, 205, 233, 1) 100%);
   --Blur: blur(50px);
   --ColorOscuro: #0A78D0;
-  --ColorClaro: rgb(64, 188, 250);
+  --ColorBordeImg: rgba(64, 188, 250, 0.397);
+  --ColorAzulClaro: rgb(64, 188, 250);
   --ColorBlanco: #FFFFFF;
+  --ColorCrema: #ececec;
   --ColorNegro: #1c1c1c;
   --ColorAzulOscuro: rgba(1, 62, 141, 0.904);
-
-
+  --ColorTransparente: transparent;
+  --ColorBoxShadown: #1ca5db 2px 2px 20px 1px;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--FuentePrincipal);
 }
 
 main {
@@ -43,20 +44,17 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem;
-  background-color: #ececec;
-  transition: background-color 1.5s ease;
-  /* Asegura una transición modo oscuro suave */
+ 
+  background-color: var(--ColorCrema);
+  transition: background-color 1.5s ease; /* Asegura una transición modo oscuro suave */
 }
 
 header .logo,
 header .nav-list li a,
 header .abrir-menu,
 header .cerrar-menu {
-  transition: color 1.5s ease;
-  /* Asegura una transición suave para el color del texto */
+  transition: color 1.5s ease; /* Asegura una transición suave para el color del texto */
 }
-
 
 /* -------------- menu --------------- */
 .logo {
@@ -82,7 +80,6 @@ header .cerrar-menu {
 }
 
 /* ----------------modo oscuro boton --------------- */
-
 #toggle {
   display: none;
 }
@@ -99,7 +96,7 @@ header .cerrar-menu {
 
 .dark {
   background: var(--BackGroundFondoPrincipal);
-  color: #ececec;
+  color: var(--ColorBlanco);
   transition: all 1.5s ease;
 }
 
@@ -107,19 +104,48 @@ header .cerrar-menu {
   background: var(--BackGroundFondoPrincipal);
 }
 
-.dark .nav-list a {
-  color: #ececec;
+/*------------ linea bajo el menu de opciones efectos --------------*/
+
+.nav-list a, .dark .nav-list a {
+  /*color: #d40202;*/
+  position: relative;
+  letter-spacing: 0.5px;
+  padding: 0 10px;
 }
+
+.dark .nav-list a {
+  color: var(--ColorBlanco);
+}
+
+.nav-list a:after, .dark .nav-list a:after{
+  content: "";
+  position: absolute;
+  background-color: var(--ColorAzulClaro);
+  height: 3px;
+  width: 0%;
+  left: 0;
+  bottom: -10px;
+  transition: 0.3s;
+}
+
+.nav-list a:hover, .dark .nav-list a:hover{
+  color: var(--ColorAzulClaro);
+}
+
+.nav-list a:hover:after, .dark .nav-list a:hover:after{
+  width: 100%;
+}
+
+/*------------ -----------------------------------------------------*/
 
 /* Cuando no está en modo oscuro */
 body:not(.dark) .descripcion h2,
-body:not(.dark) .descripcion p,
-body:not(.dark) .diremail {
+body:not(.dark) .descripcion p{
   color: var(--ColorAzulOscuro);
 }
 
-/* --------------------SECCION SALUDO--- --------------- */
 
+/* --------------------SECCION SALUDO--- --------------- */
 .saludo {
   display: flex;
   justify-content: center;
@@ -131,7 +157,7 @@ body:not(.dark) .diremail {
   height: 400px;
   border-radius: 50%;
   border: solid 2px;
-  border-color: rgba(64, 188, 250, 0.397);
+  border-color: var(--ColorBordeImg);
 }
 
 .descripcion {
@@ -151,29 +177,27 @@ body:not(.dark) .diremail {
   background: var(--DegradeTituloPrincipal);
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: var(--ColorTransparente);
 }
-
 
 .descripcion h2 {
   text-align: left;
-  color: #fff;
+  color: var(--ColorBlanco);
   font-size: 35px;
   text-transform: uppercase;
   margin-bottom: 20px;
 }
 
-.descripcion p,
-a {
+.descripcion p,a {
   text-align: left;
-  color: #fff;
+  color: var(--ColorBlanco);
   font-size: 20px;
   text-decoration: none;
 }
 
 .descripcion .botones {
   display: flex;
-  justify-content:center ;
+  justify-content: center;
   align-content: center;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -189,44 +213,42 @@ a {
   text-decoration: none;
   padding: 15px 20px;
   border-radius: 8px;
-  width:max-content;
+  width: max-content;
 }
 
 .btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
-  background-color: rgb(64, 188, 250);
+  color: var(--ColorBlanco);
+  background-color: var(--ColorAzulClaro);
   border: solid 3px;
-  border-color: rgb(64, 188, 250);
+  border-color: var(--ColorAzulClaro);
 }
 
-
 .btn-resumen {
-  color: rgb(64, 188, 250);
-  border-color: rgb(64, 188, 250);
+  color: var(--ColorAzulClaro);
+  border-color: var(--ColorAzulClaro);
   border: solid 3px;
-  background-color: transparent;
+  background-color: var(--ColorTransparente);
   margin-right: 15px;
 }
 
 .btn-resumen:hover {
-  color: #fff;
-  background-color: rgb(64, 188, 250);
-  box-shadow: #1ca5db 2px 2px 20px 1px;
+  color: var(--ColorBlanco);
+  background-color: var(--ColorAzulClaro);
+  box-shadow: var(--ColorBoxShadown);
 }
 
 .btn:hover {
-  color: rgb(64, 188, 250);
-  background-color: transparent;
-  box-shadow: #1ca5db 2px 2px 20px 1px;
+  color: var(--ColorAzulClaro);
+  background-color: var(--ColorTransparente);
+  box-shadow: var(--ColorBoxShadown);
 }
 
 /* Estilo para el icono de flecha */
 .fa-arrow-right {
-  animation: moverFlecha 0.6s linear infinite alternate;
-  /* Animación infinita y alternante */
+  animation: moverFlecha 0.6s linear infinite alternate;   /* Animación infinita y alternante */
   z-index: 900;
 }
 
@@ -245,11 +267,10 @@ a {
 
 .diremail {
   font-weight: 900;
-  color: var(--ColorClaro);
+  color: var(--ColorAzulClaro);
 }
-
-
 /* ------------------------------------- --------------- */
+
 
 .grid-container>* {
   padding: 5px;
@@ -263,8 +284,8 @@ a {
   grid-template:
     "header" 70px
     "saludo" 100vh
-    "educacion" 100vh
     "proyectos" 100vh
+    "educacion" 100vh
     "contacto" 100vh;
 
   .header {
@@ -273,17 +294,16 @@ a {
 
   .saludo {
     grid-area: saludo;
-    /*background-color: rgba(93, 95, 241, 0.74);*/
-  }
-
-  .educacion {
-    grid-area: educacion;
-    background-color: rgba(152, 241, 93, 0.74);
   }
 
   .proyectos {
     grid-area: proyectos;
     background-color: rgba(187, 93, 241, 0.74);
+  }
+
+  .educacion {
+    grid-area: educacion;
+    background-color: rgba(152, 241, 93, 0.74);
   }
 
   .contacto {
@@ -292,7 +312,6 @@ a {
   }
 
   .saludo {
-
     display: flex;
     justify-content: space-evenly;
 
@@ -302,7 +321,7 @@ a {
       align-items: center;
       width: auto;
       height: auto;
-      /* background-color: rgba(239, 241, 93, 0.74);*/
+
       padding: 10px;
       grid-area: img;
     }
@@ -312,7 +331,6 @@ a {
       height: 100%;
       padding: 10px;
       grid-area: descripcion;
-      /* background-color: rgba(236, 63, 33, 0.74);*/
     }
   }
 
@@ -336,7 +354,6 @@ a {
       background-color: rgba(33, 236, 141, 0.74);
     }
   }
-
 }
 
 @media (max-width:1024px) {
@@ -346,7 +363,6 @@ a {
 }
 
 @media (max-width:992px) {}
-
 
 @media (max-width: 769px) {
 
@@ -365,6 +381,7 @@ a {
       justify-content: space-around;
 
       .img {
+        order: -1;
         width: 100%;
         height: 50%;
       }
@@ -393,7 +410,7 @@ a {
     }
   }
 
-  .saludo{
+  .saludo {
     min-height: 100%;
     min-width: 100%;
   }
@@ -403,13 +420,12 @@ a {
     height: 100%;
   }
 
-
   .abrir-menu,
   .cerrar-menu {
     display: block;
     border: 0;
     font-size: 3rem;
-    background-color: transparent;
+    background-color: var(--ColorTransparente);
     cursor: pointer;
   }
 
@@ -422,7 +438,7 @@ a {
   }
 
   .cerrar-menu {
-    color: #ececec;
+    color: var(--ColorBlanco);
   }
 
   .nav {
@@ -438,7 +454,7 @@ a {
     top: 0;
     right: 0;
     bottom: 0;
-    background-color: #1c1c1c;
+    background-color: var(--ColorNegro);
     padding: 2rem;
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
     opacity: 1;
@@ -456,259 +472,96 @@ a {
   }
 
   .nav-list li a {
-    color: #ecececec;
+    color: var(--ColorBlanco);
   }
 
-
   /*--------------- saludo ---------------------*/
-
   .img-perfil img {
     height: 300px;
     width: 300px;
   }
 
+  .descripcion h1 {
+    font-size: 60px;
+  }
 
+  .descripcion h2 {
+   font-size: 30px;
+   margin: 0;
+  }
 }
 
 @media (max-width: 550px) {
-
   .grid-container {
-
-    grid-template:
-      "header" 70px
-      "saludo" 100vh
-      "educacion" 100vh
-      "proyectos" 100vh
-      "contacto" 100vh;
-
     .saludo {
-      display: flex;
-      flex-direction: column;
       justify-content: center;
-
-      .img {
-        order: -1;
-        width: 100%;
-        height: 50%;
-      }
-
-      .descripcion {
-        order: 1;
-        width: 100%;
-        height: auto;
-      }
-    }
-
-    .educacion {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-
-      .titulos {
-        width: 100%;
-        height: 50%;
-      }
-
-      .skill {
-        width: 100%;
-        height: 50%;
-      }
     }
   }
-
   /*--------------- saludo ---------------------*/
-  .descripcion {
+  .descripcion h1 {
+    font-size: 40px;
     margin-bottom: 20px;
   }
 
-  .descripcion h1{
-    font-size: 40px;
-    margin-bottom: 10px;
-  }
-
-  .descripcion h2{
+  .descripcion h2 {
     font-size: 25px;
-    margin-bottom: 10px;
   }
 
-  .descripcion .botones{
+  .descripcion .botones {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
-    margin-bottom:20px;
-  }
-
-  .btn-resumen{
-    margin-bottom: 5px;
-  }
-
-  .img-perfil {
-    margin-bottom: 5px;
-  }
-
-  .img-perfil img {
-    height: 250px;
-    width: 250px;
+    
+    margin-bottom: 30px;
+    width: 80%;
   }
 
   .botones a {
-    width:100%;
+    margin-bottom: 10px;
+    width: 100%;
     font-size: 20px;
+  }
+
+  .btn-resumen {
+    margin-right: 0;
+  }
+
+  .img-perfil {
+    margin-bottom: 20px;
   }
 }
 
 @media (max-width: 425px) {
-
-  .grid-container {
-
-    grid-template:
-      "header" 70px
-      "saludo" 100vh
-      "educacion" 100vh
-      "proyectos" 100vh
-      "contacto" 100vh;
-
-    .saludo {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-      .img {
-        order: -1;
-        width: 100%;
-        height: 50%;
-      }
-
-      .descripcion {
-        order: 1;
-        width: 100%;
-        height: auto;
-      }
-    }
-
-    .educacion {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-
-      .titulos {
-        width: 100%;
-        height: 50%;
-      }
-
-      .skill {
-        width: 100%;
-        height: 50%;
-      }
-    }
-  }
-
   /*--------------- saludo ---------------------*/
-  .descripcion {
+  .img-perfil {
     margin-bottom: 20px;
   }
-
-  .descripcion h1{
-    font-size: 40px;
-    margin-bottom: 10px;
-  }
-
-  .descripcion h2{
-    font-size: 25px;
-    margin-bottom: 10px;
-  }
-
-  .descripcion .botones{
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    margin-bottom:20px;
-  }
-
-  .btn-resumen{
-    margin-bottom: 5px;
-  }
-
-  .img-perfil {
-    margin-bottom: 5px;
-  }
-
+  
   .img-perfil img {
-    height: 200px;
-    width: 200px;
-  }
-
-  .botones a {
-    width:100%;
-    font-size: 20px;
+    height: 250px;
+    width: 250px;
   }
 }
 
 @media (max-width: 375px) {
 
   /*--------------- saludo ---------------------*/
-  .descripcion {
-    margin-bottom: 20px;
+  .descripcion h1 {
+    font-size: 35px;
   }
 
-  .descripcion h1{
-    font-size: 30px;
-    margin-bottom: 10px;
-  }
-
-  .descripcion h2{
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-
-  .descripcion p, a{
-    font-size: 18px;
+  .descripcion h2 {
+    font-size: 25px;
   }
 
   .botones a {
     padding: 15px;
-    font-size: 10px;
   }
+}
 
-
+@media (max-width: 320px) {
+  /*--------------- saludo ---------------------*/
   .img-perfil img {
     height: 200px;
     width: 200px;
   }
-
-
-}
-
-@media (max-width: 320px) {
-
-  /*--------------- saludo ---------------------*/
-  .descripcion {
-    margin-bottom: 20px;
-  }
-
-  .descripcion h1{
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-
-  .descripcion h2{
-    font-size: 15px;
-    margin-bottom: 10px;
-  }
-
-  .descripcion p, a{
-    font-size: 12px;
-  }
-
-  .img-perfil img {
-    height: 150px;
-    width: 150px;
-  }
-
-  .botones a {
-    padding: 10px;
-    font-size: 10px;
-  }
-
- 
 }
