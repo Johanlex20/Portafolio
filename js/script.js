@@ -45,7 +45,7 @@ toggle.addEventListener('change', (event)=>{
     document.body.classList.toggle('dark');
     if(checked == true){
         label_toogle.innerHTML="<i class='bx bxs-sun' ></i>";
-        label_toogle.style.color="var(--DarkHeaderBackground)";
+        label_toogle.style.color="var(--ColorAzulOscuro)";
     }else{
         label_toogle.innerHTML="<i class='bx bxs-moon'></i>"; 
         label_toogle.style.color="var(--ColorBlanco)";
