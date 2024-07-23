@@ -51,3 +51,33 @@ toggle.addEventListener('change', (event)=>{
         label_toogle.style.color="var(--ColorBlanco)";
     }
 });
+
+
+// ABRIR VIDEO DEMO en modal
+const demoButtons = document.querySelectorAll('.demo-btn');
+const modal = document.getElementById('videoModal');
+const span = document.getElementsByClassName('close')[0];
+const demoVideo = document.getElementById('demoVideo');
+
+demoButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const videoUrl = button.getAttribute('data-video-url');
+        modal.style.display = "block";
+        demoVideo.src = videoUrl;
+        document.body.classList.add("no-scroll"); // Deshabilitar scroll
+    });
+});
+
+span.addEventListener('click', () => {
+    modal.style.display = "none";
+    demoVideo.src = "";
+    document.body.classList.remove("no-scroll"); // Habilitar scroll
+});
+
+window.addEventListener('click', (event) => {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        demoVideo.src = "";
+        document.body.classList.remove("no-scroll"); // Habilitar scroll
+    }
+});

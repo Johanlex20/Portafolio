@@ -10,11 +10,23 @@
   --ColorAzulClaro: rgb(64, 188, 250);
   --ColorBlanco: #FFFFFF;
   --ColorCrema: #ececec;
+  --ColorTextoHumo: #a0a0a0;
   --ColorNegro: #1c1c1c;
+  --ColorNegroPuro: #000000;
+  --ColorNegroModal:rgba(0,0,0,0.4);
+  --ColorNegroCard: #1c1b29;
   --ColorAzulOscuro: rgba(1, 62, 141, 0.904);
+
   --ColorTransparente: transparent;
   --ColorBoxShadown: #1ca5db 2px 2px 20px 1px;
+  --ColorBoxShadownNegro: 0 0 30px rgba(0, 0, 0, 0.18);
+
+
+  --url-image:url(https://images.unsplash.com/photo-1616699991366-2e3075672f7e?q=80&w=2126&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  --Colums: repeat(3,1fr);
+  --rows: 1fr;
 }
+
 
 * {
   margin: 0;
@@ -36,6 +48,7 @@ body {
   transition: all 1.5s ease;
 }
 
+
 body.no-scroll {
   overflow: hidden;
 }
@@ -54,6 +67,220 @@ header .nav-list li a,
 header .abrir-menu,
 header .cerrar-menu {
   transition: color 1.5s ease; /* Asegura una transición suave para el color del texto */
+}
+
+.grid-container>* {
+  padding: 5px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.grid-container {
+  display: grid;
+  gap: 2px;
+  grid-template:
+    "header" 70px
+    "saludo" 100vh
+    "proyectos" auto
+    "educacion" 100vh
+    "contacto" 100vh;
+/*
+  .header {
+    grid-area: header;
+  }
+
+  .saludo {
+    grid-area: saludo;
+  }
+
+  .proyectos {
+    grid-area: proyectos;
+  }
+*/
+  .educacion {
+    grid-area: educacion;
+    background-color: rgba(152, 241, 93, 0.74);
+  }
+
+  .contacto {
+    grid-area: contacto;
+    background-color: rgba(241, 93, 93, 0.74);
+  }
+
+  .saludo {
+    display: flex;
+    justify-content: center;
+
+    .img-perfil {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: auto;
+      height: auto;
+
+      padding: 10px;
+      margin-left: 10px;
+      grid-area: img;
+    }
+
+    .descripcion {
+      width: 50%;
+      height: 100%;
+      padding: 10px;
+      grid-area: descripcion;
+    }
+  }
+
+  .proyectos{
+    display: grid;
+    place-items: center center;
+    min-height: 100vh;
+
+    .cards{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      padding: 20px;
+      grid-gap: 40px;
+    }
+    .card{
+      background-color: var(--ColorNegroCard);
+      border-radius: 20px;
+      box-shadow: var(--ColorBoxShadownNegro);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card__container{
+      position: relative;
+      clip-path: polygon(0 0,100% 0, 100% 85%, 0 100%); 
+      height: 100%;
+    }
+
+    .card img{
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 20px 20px 0 0;
+    }
+
+
+    .details{
+      padding: 20px 10px;
+    }
+
+    .details>h3{
+      color: var(--ColorBlanco); 
+      font-weight: 600;
+      font-size: 18px;
+      margin: 10px 0 15px 0;
+    }
+
+    .details>p{
+      color:var(--ColorTextoHumo);
+      font-size: 15px;
+      line-height: 30px;
+      font-weight: 400;
+    }
+
+    .details .botones {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      margin: 20px 0;
+      max-height: 40px;
+    }
+
+    .details .botones a{
+      padding: 10px;
+      width: max-content;
+    }
+
+    .details .botones i{
+      margin-left: 10px;
+      width: max-content;
+    }
+
+    .iconos-proyecto{
+      margin-top: 10px;
+      font-size: 30px;
+    }
+
+    /* Estilos para la modal */
+  .modal {
+    display: none;
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: hidden; 
+    background-color: var(--ColorNegroModal); 
+  }
+
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra vertical y horizontalmente */
+    background-color: var(--ColorNegroPuro);
+    padding: 25px 5px;
+    border-radius: 15px;
+    width: 80%; 
+    max-width: 800px; 
+    box-shadow: var(--ColorBoxShadownNegro);
+    box-sizing: border-box; /* Incluye padding en el cálculo del ancho */
+    position: relative; /* Necesario para el posicionamiento del botón de cierre */
+  }
+
+  .close {
+    color: var(--ColorTextoHumo);
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0.2px;
+    left: 50%;
+    transform: translateX(-50%); /* Centra horizontalmente */
+  }
+
+  .close:hover,
+  .close:focus {
+    color: var(--ColorNegroPuro);
+    text-decoration: none;
+  }
+    
+  iframe {
+    width: 100%;
+    height: 45vw; /* Para que sea responsivo */
+    max-height: 400px; /* Altura máxima */
+  }
+
+  }
+
+
+  .educacion {
+    display: flex;
+    flex-direction: row;
+
+    .titulos {
+      width: 50%;
+      height: 100%;
+      padding: 10px;
+      grid-area: titulos;
+      background-color: rgba(93, 241, 150, 0.74);
+    }
+
+    .skill {
+      width: 50%;
+      height: 100%;
+      padding: 10px;
+      grid-area: skill;
+      background-color: rgba(33, 236, 141, 0.74);
+    }
+  }
 }
 
 /* -------------- menu --------------- */
@@ -144,6 +371,21 @@ body:not(.dark) .descripcion p{
   color: var(--ColorAzulOscuro);
 }
 
+/* Cuando no está en modo oscuro */
+body:not(.dark) .proyectos .card {
+  background-color: var(--ColorTransparente);
+  box-shadow: var(--ColorBoxShadownNegro);
+}
+
+/* Cuando no está en modo oscuro */
+body:not(.dark) .proyectos .card h3 {
+color: var(--ColorAzulOscuro);
+}
+
+body:not(.dark) .proyectos .card .iconos-proyecto{
+  color: var(--ColorAzulOscuro);
+}
+
 
 /* --------------------SECCION SALUDO--- --------------- */
 .saludo {
@@ -208,6 +450,7 @@ body:not(.dark) .descripcion p{
   justify-content: center;
   align-items: center;
 
+
   font-size: 30px;
   font-weight: bold;
   text-decoration: none;
@@ -224,6 +467,7 @@ body:not(.dark) .descripcion p{
   background-color: var(--ColorAzulClaro);
   border: solid 3px;
   border-color: var(--ColorAzulClaro);
+ 
 }
 
 .btn-resumen {
@@ -269,94 +513,20 @@ body:not(.dark) .descripcion p{
   font-weight: 900;
   color: var(--ColorAzulClaro);
 }
-/* ------------------------------------- --------------- */
-
-
-.grid-container>* {
-  padding: 5px;
-  text-align: center;
-  font-weight: 500;
-}
-
-.grid-container {
-  display: grid;
-  gap: 2px;
-  grid-template:
-    "header" 70px
-    "saludo" 100vh
-    "proyectos" 100vh
-    "educacion" 100vh
-    "contacto" 100vh;
-
-  .header {
-    grid-area: header;
-  }
-
-  .saludo {
-    grid-area: saludo;
-  }
-
-  .proyectos {
-    grid-area: proyectos;
-    background-color: rgba(187, 93, 241, 0.74);
-  }
-
-  .educacion {
-    grid-area: educacion;
-    background-color: rgba(152, 241, 93, 0.74);
-  }
-
-  .contacto {
-    grid-area: contacto;
-    background-color: rgba(241, 93, 93, 0.74);
-  }
-
-  .saludo {
-    display: flex;
-    justify-content: space-evenly;
-
-    .img-perfil {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: auto;
-      height: auto;
-
-      padding: 10px;
-      grid-area: img;
-    }
-
-    .descripcion {
-      width: 50%;
-      height: 100%;
-      padding: 10px;
-      grid-area: descripcion;
-    }
-  }
-
-  .educacion {
-    display: flex;
-    flex-direction: row;
-
-    .titulos {
-      width: 50%;
-      height: 100%;
-      padding: 10px;
-      grid-area: titulos;
-      background-color: rgba(93, 241, 150, 0.74);
-    }
-
-    .skill {
-      width: 50%;
-      height: 100%;
-      padding: 10px;
-      grid-area: skill;
-      background-color: rgba(33, 236, 141, 0.74);
-    }
-  }
-}
-
+/* ---------------------PROYECTOS------ --------------- */
 @media (max-width:1024px) {
+
+  .grid-container {
+
+    grid-template:
+      "header" 70px
+      "saludo" 100vh
+      "proyectos" auto
+      "educacion" 100vh
+      "contacto" 100vh;
+  }
+
+
   .botones a {
     font-size: 25px;
   }
@@ -371,14 +541,18 @@ body:not(.dark) .descripcion p{
     grid-template:
       "header" 70px
       "saludo" 100vh
+      "proyectos" auto
       "educacion" 100vh
-      "proyectos" 100vh
       "contacto" 100vh;
 
     .saludo {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
+
+      .img-perfil{
+        margin-left: 0;
+      }
 
       .img {
         order: -1;
@@ -489,6 +663,16 @@ body:not(.dark) .descripcion p{
    font-size: 30px;
    margin: 0;
   }
+
+  /*------------------ proyectos------------------*/
+
+  .proyectos .descripcion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
 }
 
 @media (max-width: 550px) {
@@ -528,6 +712,14 @@ body:not(.dark) .descripcion p{
   .img-perfil {
     margin-bottom: 20px;
   }
+
+  .details .btn-resumen {
+    margin-right: 15px;
+    margin-bottom: 0;
+  }
+  .details .btn {
+    margin-bottom: 0;
+  }
 }
 
 @media (max-width: 425px) {
@@ -540,6 +732,7 @@ body:not(.dark) .descripcion p{
     height: 250px;
     width: 250px;
   }
+
 }
 
 @media (max-width: 375px) {

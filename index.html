@@ -37,13 +37,12 @@
 
             <section class="saludo" id="saludo">
                 <div class="descripcion">
-                 
                     <h1>Desarrollador Web FullStack</h1>
                     <h2>Bienvenido a mi Portafolio</h2>
-  
+
                     <div class="botones">
                         <a href="#" download="#" class="btn-resumen">
-                            Resumen &nbsp;</i> <i class='bx bx-file'></i>  <i class="fa-regular fa-file" ></i>
+                            Resumen &nbsp;</i> <i class='bx bx-file'></i> <i class="fa-regular fa-file"></i>
                         </a>
                         <a href="#proyectos" class="btn">
                             Proyectos &nbsp; <i class='bx bx-right-arrow-alt fa-arrow-right'></i>
@@ -51,7 +50,7 @@
                     </div>
                     <p>¿Te gustaria contactarme?.</p>
                     <p>Dejame saberlo:&nbsp;&nbsp;&nbsp; <br> <a class="diremail"
-                    href="mailto:johanlex20@hotmail.com/">johanlex20@hotmail.com</a></p>
+                            href="mailto:johanlex20@hotmail.com/">johanlex20@hotmail.com</a></p>
                 </div>
                 <div class="img-perfil">
                     <img src="img/portada.jpg" alt="img">
@@ -59,8 +58,105 @@
             </section>
 
             <section class="proyectos" id="proyectos">
-                <div>
-                    PROYECTOS
+
+                <div class="descripcion">
+                    <h1>Proyectos</h1>
+                </div>
+
+                <div class="cards">
+
+                    <div class="card card1">
+                        <div class="card__container">
+                            <img src="/img/lasvegas.jpg" alt="las vegas">
+                        </div>
+                        <div class="details">
+                            <h3>Las Vegas</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem veritatis sit accusamus
+                                debitis quas corporis!</p>
+
+                            <div class="iconos-proyecto">
+                                <i class='bx bxl-java icono-blanco'></i>
+                                <i class='bx bxl-spring-boot icono-blanco'></i>
+                                <i class='bx bxl-angular icono-blanco'></i>
+                                <i class='bx bxl-typescript icono-blanco'></i>
+                            </div>
+
+                            <div class="botones">
+                                <a href="https://github.com/Johanlex20/pempresasMVC" class="btn-resumen" target="_blank">
+                                    Code<i class='bx bxl-github'></i>
+                                </a>
+                                <a class="btn demo-btn"
+                                    data-video-url="https://www.youtube.com/embed/6IqSJET2Tjc?si=5QU_1lGNTbvKkTtN">Demo<i
+                                        class='bx bx-play-circle'></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card2">
+                        <div class="card__container">
+                            <img src="/img/japon.jpg" alt="japon">
+                        </div>
+                        <div class="details">
+                            <h3>Japon</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem veritatis sit accusamus
+                                debitis quas corporis!</p>
+
+                            <div class="iconos-proyecto">
+                                <i class='bx bxl-html5 icono-blanco'></i>
+                                <i class='bx bxl-css3 icono-blanco'></i>
+                                <i class='bx bxl-angular icono-blanco'></i>
+                                <i class='bx bxl-typescript icono-blanco'></i>
+                            </div>
+
+                            <div class="botones">
+                                <a href="https://github.com/Johanlex20/pempresasMVC" class="btn-resumen" target="_blank">
+                                    Code<i class='bx bxl-github'></i>
+                                </a>
+                                <a class="btn demo-btn"
+                                    data-video-url="https://www.youtube.com/embed/6IqSJET2Tjc?si=5QU_1lGNTbvKkTtN">Demo<i
+                                        class='bx bx-play-circle'></i></a>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card3">
+                        <div class="card__container">
+                            <img src="/img/singapur.jpg" alt="singapur">
+                        </div>
+
+                        <div class="details">
+                            <h3>Singapur</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem veritatis sit accusamus
+                                debitis quas corporis!</p>
+
+                            <div class="iconos-proyecto">
+                                <i class='bx bxl-java icono-blanco'></i>
+                                <i class='bx bxl-spring-boot icono-blanco'></i>
+                                <i class='bx bxl-angular icono-blanco'></i>
+                                <i class='bx bxl-typescript icono-blanco'></i>
+                            </div>
+
+                            <div class="botones">
+                                <a href="https://github.com/Johanlex20/pempresasMVC" class="btn-resumen" target="_blank">
+                                    Code<i class='bx bxl-github'></i>
+                                </a>
+                                <a class="btn demo-btn"
+                                    data-video-url="https://www.youtube.com/embed/6IqSJET2Tjc?si=5QU_1lGNTbvKkTtN">Demo<i
+                                        class='bx bx-play-circle'></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal para el video -->
+                <div id="videoModal" class="modal">
+                    <div class="modal-content">
+                        <iframe id="demoVideo" width="560" height="315" src="" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                        <span class="close">&times;</span>
+                    </div>
                 </div>
             </section>
 
@@ -81,6 +177,9 @@
 
         </div>
     </main>
+
+
+
 </body>
 <script src="js/script.js"></script>
 
