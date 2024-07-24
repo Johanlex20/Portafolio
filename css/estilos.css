@@ -141,7 +141,8 @@ header .cerrar-menu {
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      width: 95%;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
       padding: 20px;
       grid-gap: 40px;
     }
