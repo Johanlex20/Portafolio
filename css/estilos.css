@@ -82,7 +82,7 @@ header .cerrar-menu {
     "header" 70px
     "saludo" 100vh
     "proyectos" auto
-    "educacion" 100vh
+    "educacion" max-content
     "contacto" 100vh;
 /*
   .header {
@@ -96,12 +96,12 @@ header .cerrar-menu {
   .proyectos {
     grid-area: proyectos;
   }
-*/
+
   .educacion {
     grid-area: educacion;
     background-color: rgba(152, 241, 93, 0.74);
   }
-
+*/
   .contacto {
     grid-area: contacto;
     background-color: rgba(241, 93, 93, 0.74);
@@ -254,7 +254,7 @@ header .cerrar-menu {
     
   iframe {
     width: 100%;
-    height: 45vw; /* Para que sea responsivo */
+    height: 450vw; /* Para que sea responsivo */
     max-height: 400px; /* Altura máxima */
   }
 
@@ -270,15 +270,112 @@ header .cerrar-menu {
       height: 100%;
       padding: 10px;
       grid-area: titulos;
-      background-color: rgba(93, 241, 150, 0.74);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .etiquetas{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .etiqueta{
+       width: 100%; 
+       padding: 10px;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       margin-top: 10px;
+      }
+
+      .etiqueta h2{
+        margin-bottom: 15px;
+        font-size: 25px;
+      }
+
+      .etiqueta h3{
+        margin-bottom: 15px;
+        font-size: 20px;
+      }
+
+      .etiqueta h2{
+        color: var(--ColorAzulClaro);
+      }
+     
+  
+      .eti-item{
+        background-color: var(--ColorNegroCard);
+        width: fit-content;
+        border-radius: 8px;
+        box-shadow: var(--ColorBoxShadownNegro);
+        padding: 10px 20px;
+        
+      }
+
+      .eti-item img{
+        width: 250px;
+        height: 150px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 8px;
+      }
+
     }
 
     .skill {
-      width: 50%;
+      width: 100%;
       height: 100%;
       padding: 10px;
       grid-area: skill;
-      background-color: rgba(33, 236, 141, 0.74);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+     
+      
+    .etiquetas{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      /*grid-template-columns: repeat( auto-fit, minmax( 200px, 1fr));*/
+      min-height: 100vh;
+    }
+    
+    .eti{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño */
+      gap: 10px; /* Espacio entre las columnas y filas */
+      padding: 20px;
+      width: 100%;
+    }
+
+    .eti-item {
+      background-color: var(--ColorNegroCard);
+      border-radius: 20px;
+      box-shadow: var(--ColorBoxShadownNegro);
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Centra el contenido verticalmente */
+      align-items: center; /* Centra el contenido horizontalmente */
+      padding: 10px;
+    }
+
+    .etiqueta{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      margin-left: 20px;
+    }
+
+    .eti img{
+      width: 50px;
+      margin-bottom: 10px;
+    }
+
+    .eti h3{
+      font-size: 10px;
+    }
     }
   }
 }
@@ -372,9 +469,24 @@ body:not(.dark) .descripcion p{
 }
 
 /* Cuando no está en modo oscuro */
-body:not(.dark) .proyectos .card {
+body:not(.dark) .proyectos .card{
   background-color: var(--ColorTransparente);
   box-shadow: var(--ColorBoxShadownNegro);
+}
+
+body:not(.dark) .educacion .titulos .eti-item{
+  background-color: var(--ColorTransparente);
+  box-shadow: var(--ColorBoxShadownNegro);
+} 
+
+body:not(.dark) .educacion .eti .eti-item{
+  background-color: var(--ColorTransparente);
+  box-shadow: var(--ColorBoxShadownNegro);
+} 
+
+body:not(.dark) .educacion .etiqueta h2,
+body:not(.dark) .educacion .etiqueta h3 {
+  color: var(--ColorAzulOscuro);
 }
 
 /* Cuando no está en modo oscuro */
@@ -522,7 +634,7 @@ body:not(.dark) .proyectos .card .iconos-proyecto{
       "header" 70px
       "saludo" 100vh
       "proyectos" auto
-      "educacion" 100vh
+      "educacion" auto
       "contacto" 100vh;
   }
 
@@ -542,7 +654,7 @@ body:not(.dark) .proyectos .card .iconos-proyecto{
       "header" 70px
       "saludo" 100vh
       "proyectos" auto
-      "educacion" 100vh
+      "educacion" auto
       "contacto" 100vh;
 
     .saludo {
@@ -574,12 +686,24 @@ body:not(.dark) .proyectos .card .iconos-proyecto{
 
       .titulos {
         width: 100%;
-        height: 50%;
+        height:fit-content;
+
+        .descripcion{
+          height: fit-content;
+          align-items: center;
+        }
+
       }
 
       .skill {
         width: 100%;
-        height: 50%;
+        height: max-content;
+
+
+        .descripcion{
+          height: fit-content;
+          align-items: center;
+        }
       }
     }
   }
@@ -677,11 +801,20 @@ body:not(.dark) .proyectos .card .iconos-proyecto{
 
 @media (max-width: 550px) {
   .grid-container {
+
+    grid-template:
+    "header" 70px
+    "saludo" 120vh
+    "proyectos" auto
+    "educacion" auto
+    "contacto" 120vh;
+
     .saludo {
       justify-content: center;
     }
   }
   /*--------------- saludo ---------------------*/
+  
   .descripcion h1 {
     font-size: 40px;
     margin-bottom: 20px;
@@ -723,6 +856,17 @@ body:not(.dark) .proyectos .card .iconos-proyecto{
 }
 
 @media (max-width: 425px) {
+
+  .grid-container {
+
+    grid-template:
+      "header" 70px
+      "saludo" 100vh
+      "proyectos" auto
+      "educacion" auto
+      "contacto" 100vh;
+  }
+
   /*--------------- saludo ---------------------*/
   .img-perfil {
     margin-bottom: 20px;
