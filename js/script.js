@@ -82,4 +82,25 @@ window.addEventListener('click', (event) => {
     }
 });
 
-//
+//MODAL DIPLOMAS IMG
+document.querySelectorAll('.image-container .image img').forEach(image =>{
+    image.onclick = () =>{
+        document.querySelector('.modal-image').style.display = 'block';
+        document.querySelector('.modal-image img').src=image.getAttribute('src');
+        document.body.classList.add("no-scroll"); // Deshabilitar scroll
+    }
+});
+
+// CERRAR EL MODAL HACIENDO CLICK ENCERRRAR
+document.querySelector('.modal-image .close').onclick = () => {
+    document.querySelector('.modal-image').style.display = 'none';
+    document.body.classList.remove("no-scroll"); // Habilitar scroll
+};
+
+// CERRAR EL MODAL HACIENDO CLICK FUERA DE LA IMAGEN
+document.querySelector('.modal-image').addEventListener('click', (event) => {
+    if (event.target.classList.contains('modal-image')) {
+        document.querySelector('.modal-image').style.display = 'none';
+        document.body.classList.remove("no-scroll"); // Habilitar scroll
+    }
+});

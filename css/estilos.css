@@ -262,9 +262,9 @@ header .cerrar-menu {
 
     iframe {
       width: 100%;
-      height: 450vw;
+      height: 100vw;
       /* Para que sea responsivo */
-      max-height: 400px;
+      max-height: 700px;
       /* Altura máxima */
     }
 
@@ -292,7 +292,6 @@ header .cerrar-menu {
       }
 
       .etiqueta {
-        width: 100%;
         padding: 10px;
         display: flex;
         flex-direction: column;
@@ -315,22 +314,60 @@ header .cerrar-menu {
         color: var(--ColorAzulClaro);
       }
 
+      
 
-      .eti-item {
-        background-color: var(--ColorNegroCard);
-        width: fit-content;
+      .image-container .image{
         border-radius: 8px;
         box-shadow: var(--ColorBoxShadownNegro);
-        padding: 10px 20px;
-
+       
+        height: 250px;
+        width: 350px;
+        overflow: hidden;
+        cursor: pointer;
       }
 
-      .eti-item img {
-        width: 250px;
-        height: 150px;
+      .image-container .image img{
+        height: 100%;
+        width: 100%;
         object-fit: cover;
-        object-position: center;
-        border-radius: 8px;
+        transition: .2s linear;
+      }
+
+      .image-container .image:hover img{
+        transform: scale(1.1);
+      }
+     
+
+      /* ----------- MODAL DIPLOMAS ----------------- */
+
+      .image-container .modal-image{
+        position: fixed;
+        top:0; left: 0;
+        background-color: rgba(0, 0, 0, .9);
+        height: 100%;
+        width: 100%;
+        z-index: 100;
+        display: none;
+      }
+
+      .image-container .modal-image span{
+        position: absolute;
+        top: 0; right: 10px;
+        font-size:  60px;
+        font-weight: 400;
+        color: var(--ColorTextoHumo);
+        cursor: pointer;
+        z-index: 100;
+      }
+
+      .image-container .modal-image img{
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        border: 5px solid #fff;
+        border-radius: 5px;
+        width: 50%;
+        object-fit: cover;
       }
 
     }
@@ -712,6 +749,10 @@ a {
         .descripcion {
           height: fit-content;
           align-items: center;
+        }
+
+        .image-container .modal-image img{
+            width: 70%;
         }
 
       }
