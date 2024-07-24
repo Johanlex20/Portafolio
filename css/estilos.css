@@ -366,7 +366,7 @@ header .cerrar-menu {
         transform: translate(-50%, -50%);
         border: 5px solid #fff;
         border-radius: 5px;
-        width: 50%;
+        width: 40%;
         object-fit: cover;
       }
 
