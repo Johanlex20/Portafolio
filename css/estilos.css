@@ -124,6 +124,17 @@ header .cerrar-menu {
       padding: 10px;
       margin-left: 10px;
       grid-area: img;
+
+
+      .image-container .image{
+        border-radius: 8px;
+        box-shadow: var(--ColorBoxShadownNegro);
+       
+        height: 250px;
+        width: 350px;
+        overflow: hidden;
+        cursor: pointer;
+      }
     }
 
     .descripcion {
@@ -131,6 +142,46 @@ header .cerrar-menu {
       height: 100%;
       padding: 10px;
       grid-area: descripcion;
+
+
+      .descripcion .modal-resumen img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        transition: .2s linear;
+      }
+
+      /* ----------- MODAL DIPLOMAS ----------------- */
+
+      .modal-resumen{
+        position: fixed;
+        top:0; left: 0;
+        background-color: rgba(0, 0, 0, .9);
+        height: 100%;
+        width: 100%;
+        z-index: 1000;
+        display: none;
+      }
+      .modal-resumen span{
+        position: absolute;
+        top: 0; right: 10px;
+        font-size:  60px;
+        font-weight: 400;
+        color: var(--ColorTextoHumo);
+        cursor: pointer;
+        z-index: 1000;
+      }
+
+      .modal-resumen img{
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 90%; /* Evita que la imagen sea más ancha que el 90% del modal */
+        max-height: 90%; /* Evita que la imagen sea más alta que el 90% del modal */
+        border: 5px solid #fff;
+        border-radius: 5px;
+        object-fit: cover;
+      }
     }
   }
 
@@ -154,6 +205,14 @@ header .cerrar-menu {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
+      transition: 0.5s ease;
+      cursor: pointer;
+    }
+
+    .card:hover{
+      transform: scale(1.09);
+      /*box-shadow: var(--ColorBoxShadown);*/
     }
 
     .card__container {
@@ -241,8 +300,8 @@ header .cerrar-menu {
       position: relative;
       /* Necesario para el posicionamiento del botón de cierre */
     }
-
-    .close {
+ 
+      .close1 {
       color: var(--ColorTextoHumo);
       float: right;
       font-size: 30px;
@@ -645,6 +704,7 @@ a {
   border: solid 3px;
   background-color: var(--ColorTransparente);
   margin-right: 15px;
+  cursor: pointer;
 }
 
 .btn-resumen:hover {
@@ -658,6 +718,7 @@ a {
   background-color: var(--ColorTransparente);
   box-shadow: var(--ColorBoxShadown);
 }
+
 
 /* Estilo para el icono de flecha */
 .fa-arrow-right {

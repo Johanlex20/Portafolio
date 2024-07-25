@@ -56,7 +56,7 @@ toggle.addEventListener('change', (event)=>{
 // ABRIR VIDEO DEMO en modal
 const demoButtons = document.querySelectorAll('.demo-btn');
 const modal = document.getElementById('videoModal');
-const span = document.getElementsByClassName('close')[0];
+const span = document.getElementsByClassName('close1')[0];
 const demoVideo = document.getElementById('demoVideo');
 
 demoButtons.forEach(button => {
@@ -101,6 +101,29 @@ document.querySelector('.modal-image .close').onclick = () => {
 document.querySelector('.modal-image').addEventListener('click', (event) => {
     if (event.target.classList.contains('modal-image')) {
         document.querySelector('.modal-image').style.display = 'none';
+        document.body.classList.remove("no-scroll"); // Habilitar scroll
+    }
+});
+
+// ABRIR RESUMEN MODAL
+
+const resumenBtn = document.querySelector('.btn-resumen');
+const resumenModal = document.querySelector('.modal-resumen');
+const resumenClose = resumenModal.querySelector('.close');
+
+resumenBtn.addEventListener('click', () => {
+    resumenModal.style.display = 'block';
+    document.body.classList.add("no-scroll"); // Deshabilitar scroll
+});
+
+resumenClose.addEventListener('click', () => {
+    resumenModal.style.display = 'none';
+    document.body.classList.remove("no-scroll"); // Habilitar scroll
+});
+
+resumenModal.addEventListener('click', (event) => {
+    if (event.target === resumenModal) {
+        resumenModal.style.display = 'none';
         document.body.classList.remove("no-scroll"); // Habilitar scroll
     }
 });
