@@ -13,7 +13,7 @@
   --ColorTextoHumo: #a0a0a0;
   --ColorNegro: #1c1c1c;
   --ColorNegroPuro: #000000;
-  --ColorNegroModal: rgba(0, 0, 0, 0.4);
+  --ColorNegroModal: rgba(0, 0, 0, 0.9);
   --ColorNegroCard: #1c1b29;
   --ColorAzulOscuro: rgba(1, 62, 141, 0.904);
 
@@ -84,31 +84,8 @@ header .cerrar-menu {
     "header" 70px
     "saludo" 100vh
     "proyectos" auto
-    "educacion" max-content
+    "educacion" auto
     "contacto" 100vh;
-
-  /*
-  .header {
-    grid-area: header;
-  }
-
-  .saludo {
-    grid-area: saludo;
-  }
-
-  .proyectos {
-    grid-area: proyectos;
-  }
-
-  .educacion {
-    grid-area: educacion;
-    background-color: rgba(152, 241, 93, 0.74);
-  }
-*/
-  .contacto {
-    grid-area: contacto;
-    background-color: rgba(241, 93, 93, 0.74);
-  }
 
   .saludo {
     display: flex;
@@ -126,10 +103,10 @@ header .cerrar-menu {
       grid-area: img;
 
 
-      .image-container .image{
+      .image-container .image {
         border-radius: 8px;
         box-shadow: var(--ColorBoxShadownNegro);
-       
+
         height: 250px;
         width: 350px;
         overflow: hidden;
@@ -144,41 +121,74 @@ header .cerrar-menu {
       grid-area: descripcion;
 
 
-      .descripcion .modal-resumen img{
+      .descripcion .modal-resumen img {
         height: 100%;
         width: 100%;
         object-fit: cover;
         transition: .2s linear;
       }
 
+      /*------------- iconos redes ---------------*/
+
+      .redes {
+        display: flex;
+        padding: 5px 0px;
+        margin-top: 10px;
+      }
+
+      .redes i {
+        border-radius: 50%;
+       
+        background-color: var(--ColorAzulClaro);
+        width: 50px;
+        height: 50px;
+        font-size: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 15px;
+      }
+
+      .redes i:hover {
+        color: var(--ColorAzulClaro);
+        background-color: var(--ColorTransparente);
+        transform: all 2ms;
+      }
+
       /* ----------- MODAL DIPLOMAS ----------------- */
 
-      .modal-resumen{
+      .modal-resumen {
         position: fixed;
-        top:0; left: 0;
-        background-color: rgba(0, 0, 0, .9);
+        top: 0;
+        left: 0;
+        background-color: var(--ColorNegroModal);
         height: 100%;
         width: 100%;
         z-index: 1000;
         display: none;
       }
-      .modal-resumen span{
+
+      .modal-resumen span {
         position: absolute;
-        top: 0; right: 10px;
-        font-size:  60px;
+        top: 0;
+        right: 10px;
+        font-size: 60px;
         font-weight: 400;
         color: var(--ColorTextoHumo);
         cursor: pointer;
         z-index: 1000;
       }
 
-      .modal-resumen img{
+      .modal-resumen img {
         position: absolute;
-        top: 50%; left: 50%;
+        top: 50%;
+        left: 50%;
         transform: translate(-50%, -50%);
-        max-width: 90%; /* Evita que la imagen sea más ancha que el 90% del modal */
-        max-height: 90%; /* Evita que la imagen sea más alta que el 90% del modal */
-        border: 5px solid #fff;
+        max-width: 90%;
+        /* Evita que la imagen sea más ancha que el 90% del modal */
+        max-height: 90%;
+        /* Evita que la imagen sea más alta que el 90% del modal */
+        border: 5px solid var(--ColorBlanco);
         border-radius: 5px;
         object-fit: cover;
       }
@@ -205,12 +215,13 @@ header .cerrar-menu {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      max-height: 90%;
 
       transition: 0.5s ease;
       cursor: pointer;
     }
 
-    .card:hover{
+    .card:hover {
       transform: scale(1.09);
       /*box-shadow: var(--ColorBoxShadown);*/
     }
@@ -219,12 +230,14 @@ header .cerrar-menu {
       position: relative;
       clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
       height: 100%;
+      overflow: hidden;
     }
 
     .card img {
       width: 100%;
       height: 100%;
       display: block;
+      object-fit: cover; /* Esto asegura que la imagen se ajuste al contenedor sin distorsionarse */
       border-radius: 20px 20px 0 0;
     }
 
@@ -236,7 +249,7 @@ header .cerrar-menu {
     .details>h3 {
       color: var(--ColorBlanco);
       font-weight: 600;
-      font-size: 18px;
+      font-size: 30px;
       margin: 10px 0 15px 0;
     }
 
@@ -300,8 +313,8 @@ header .cerrar-menu {
       position: relative;
       /* Necesario para el posicionamiento del botón de cierre */
     }
- 
-      .close1 {
+
+    .close1 {
       color: var(--ColorTextoHumo);
       float: right;
       font-size: 30px;
@@ -329,7 +342,6 @@ header .cerrar-menu {
     }
 
   }
-
 
   .educacion {
     display: flex;
@@ -374,35 +386,36 @@ header .cerrar-menu {
         color: var(--ColorAzulClaro);
       }
 
-      
 
-      .image-container .image{
+
+      .image-container .image {
         border-radius: 8px;
         box-shadow: var(--ColorBoxShadownNegro);
-       
+
         height: 250px;
         width: 350px;
         overflow: hidden;
         cursor: pointer;
       }
 
-      .image-container .image img{
+      .image-container .image img {
         height: 100%;
         width: 100%;
         object-fit: cover;
         transition: .2s linear;
       }
 
-      .image-container .image:hover img{
+      .image-container .image:hover img {
         transform: scale(1.1);
       }
-     
+
 
       /* ----------- MODAL DIPLOMAS ----------------- */
 
-      .image-container .modal-image{
+      .image-container .modal-image {
         position: fixed;
-        top:0; left: 0;
+        top: 0;
+        left: 0;
         background-color: rgba(0, 0, 0, .9);
         height: 100%;
         width: 100%;
@@ -410,19 +423,21 @@ header .cerrar-menu {
         display: none;
       }
 
-      .image-container .modal-image span{
+      .image-container .modal-image span {
         position: absolute;
-        top: 0; right: 10px;
-        font-size:  60px;
+        top: 0;
+        right: 10px;
+        font-size: 60px;
         font-weight: 400;
         color: var(--ColorTextoHumo);
         cursor: pointer;
         z-index: 100;
       }
 
-      .image-container .modal-image img{
+      .image-container .modal-image img {
         position: absolute;
-        top: 50%; left: 50%;
+        top: 50%;
+        left: 50%;
         transform: translate(-50%, -50%);
         border: 5px solid #fff;
         border-radius: 5px;
@@ -488,6 +503,68 @@ header .cerrar-menu {
         font-size: 10px;
       }
     }
+  }
+
+  .contacto {
+    /*CONCTACTO*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .grupo-conctacto {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .grupo-conctacto h1 {
+      font-size: 70px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .grupo-conctacto h2 {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .redes {
+      display: flex;
+      padding: 5px;
+      margin: 30px 0;
+    
+    }
+
+    .info i {
+      font-size: 25px;
+      margin-right: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    .redes i {
+      border-radius: 50%;
+      color: #fff;
+      background-color: rgb(64, 188, 250);
+      width: 70px;
+      height: 70px;
+      font-size: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 15px;
+    }
+
+    .redes i:hover {
+      color: var(--ColorAzulClaro);
+      background-color: var(--ColorTransparente);
+      transform: all 2ms;
+    }
+
+
   }
 }
 
@@ -579,7 +656,9 @@ header .cerrar-menu {
 
 /* Cuando no está en modo oscuro */
 body:not(.dark) .descripcion h2,
-body:not(.dark) .descripcion p {
+body:not(.dark) .descripcion p,
+body:not(.dark) .grupo-conctacto h1,
+body:not(.dark) .grupo-conctacto h2   {
   color: var(--ColorAzulOscuro);
 }
 
@@ -612,6 +691,8 @@ body:not(.dark) .proyectos .card h3 {
 body:not(.dark) .proyectos .card .iconos-proyecto {
   color: var(--ColorAzulOscuro);
 }
+
+
 
 
 /* --------------------SECCION SALUDO--- --------------- */
@@ -740,10 +821,6 @@ a {
   }
 }
 
-.diremail {
-  font-weight: 900;
-  color: var(--ColorAzulClaro);
-}
 
 /* ---------------------PROYECTOS------ --------------- */
 @media (max-width:1024px) {
@@ -789,13 +866,13 @@ a {
       .img {
         order: -1;
         width: 100%;
-        height: 50%;
+        height: auto;
       }
 
       .descripcion {
         order: 1;
         width: 100%;
-        height: 50%;
+        height: auto;
       }
     }
 
@@ -813,8 +890,8 @@ a {
           align-items: center;
         }
 
-        .image-container .modal-image img{
-            width: 70%;
+        .image-container .modal-image img {
+          width: 70%;
         }
 
       }
