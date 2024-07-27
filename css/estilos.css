@@ -83,7 +83,7 @@ header .cerrar-menu {
   grid-template:
     "header" 70px
     "saludo" 100vh
-    "proyectos" auto
+    "proyectos" max-content
     "educacion" auto
     "contacto" 100vh;
 
@@ -200,12 +200,15 @@ header .cerrar-menu {
     place-items: center center;
     min-height: 100vh;
 
+    
+
     .cards {
-      display: grid;
-      width: 95%;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+     display: grid;
+     
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
       padding: 20px;
       grid-gap: 40px;
+      grid-auto-rows: minmax(360px, auto); /* Añade esta línea */
     }
 
     .card {
@@ -215,14 +218,15 @@ header .cerrar-menu {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      max-height: 90%;
 
+    
+      max-height: 570px; /* Altura máxima */
       transition: 0.5s ease;
       cursor: pointer;
     }
 
     .card:hover {
-      transform: scale(1.09);
+      transform: scale(1.05);
       /*box-shadow: var(--ColorBoxShadown);*/
     }
 
@@ -510,6 +514,7 @@ header .cerrar-menu {
     display: flex;
     justify-content: center;
     align-items: center;
+
 
     .grupo-conctacto {
       display: flex;
