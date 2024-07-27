@@ -53,6 +53,26 @@ body.no-scroll {
   overflow: hidden;
 }
 
+body::-webkit-scrollbar-thumb{
+  background-color: var(--ColorAzulClaro);
+  border-radius: 8px;
+}
+
+body::-webkit-scrollbar-thumb:hover{
+  background-color: var(--ColorOscuro);
+}
+
+
+/* -------------------persolaniacion barra scroll ----------------------*/
+body::-webkit-scrollbar{
+  width: 15px;
+}
+
+body::-webkit-scrollbar-track{
+  background: var(--BackGroundFondoPrincipal);
+}
+
+
 header {
   display: flex;
   align-items: center;
